@@ -43,7 +43,7 @@
 #### 4.1.1 The basic network architecture
 
 <div align=center>
-<img src="Image/0103.png">
+<img src="Images/0103.png">
 </div>
 
 最基础的结构：由两个编码结构组成，一边输入的是左目图像的某个像素 `x=(i,j)`及其周围的信息，另一边是右目图像想对应的 `y=(i,j-d)`的信息，通过网络去找特征。上图的(b)多加了maxpooling，可以使其获取到更大范围内的信息。（c）多了一层Spatial Pyramid Pooling,它使输出的特征网格独立于输入的图像大小。最后由全链接层来判断特征的相似程度。相较于传统的非深度学习的方法，特征与判断的方法不用人为指定，而是由网络学习获得。视差图的效果会好很多，当然也会慢一些。
@@ -51,7 +51,7 @@
 #### 4.1.2 Network architecture variants
 
 <div align=center>
-<img src="Image/0104.png">
+<img src="Images/0104.png">
 </div>
 
 1. 使用ResNet优化网络，加深网络的深度以提高效果；
