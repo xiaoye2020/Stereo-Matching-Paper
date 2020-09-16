@@ -37,3 +37,31 @@
 <img align="center" src="Images/0102.png">
 
 ### 4.1Learning feature extraction and matching
+
+深度学习的出现后，我们就不用去人工指定特征了，如之前的AD或者Census都是人为指定的特征，现在神经网络可以自己去学习特征。左图在 `x=(i,j)`为中心的域与右图以 `y=(i,j-d)`为中心的（其中d大于最小视差小于最大视差）相匹配，通过标准相似性度量得到代价值 `C(x,d)`。
+
+#### 4.1.1 The basic network architecture
+
+<div align=center>
+<img src="Image/0103.png">
+</div>
+
+最基础的结构：由两个编码结构组成，一边输入的是左目图像的某个像素 `x=(i,j)`及其周围的信息，另一边是右目图像想对应的 `y=(i,j-d)`的信息，通过网络去找特征。上图的(b)多加了maxpooling，可以使其获取到更大范围内的信息。（c）多了一层Spatial Pyramid Pooling,它使输出的特征网格独立于输入的图像大小。最后由全链接层来判断特征的相似程度。相较于传统的非深度学习的方法，特征与判断的方法不用人为指定，而是由网络学习获得。视差图的效果会好很多，当然也会慢一些。
+
+#### 4.1.2 Network architecture variants
+
+<div align=center>
+<img src="Image/0104.png">
+</div>
+
+1. 使用ResNet优化网络，加深网络的深度以提高效果；
+2. 扩大感受野，使用膨胀（空洞）卷积，加入SPP空间金字塔结构；
+3. 学习多尺度的特征，如上图所示，分为两个部分，第一个部分成为central high-resolution stream，另一部分称为surround low-resolution stream。在不同尺度上学习，在顶层进行整合。
+4. 减小向前传递次数，一般的左图的一个像素在右图需要找n个可能匹配的地方（n为可能的视差范围），需要计算的量比较大，现在左图找一块匹配区域，右图找一块更大的区域（涵盖了所有可能的点），再输入网络会有效减少向前传递的次数。
+5. 通过学习相似性，而不是学习特征，来简化网络。如（f），把左右图像打包。
+
+#### 4.1.3 Training procedures
+
+1.supervised training:手工制作匹配块，有positive匹配和negative匹配块，使用这些数据集训练神经网络，使损失函数最小化，这里的代价是指真实的视差与预测视差的差异性大小。可以使用$L_{1}$距离，铰链损失函数或交叉熵损失函数。
+
+2.weakly supervised learning：没看懂
