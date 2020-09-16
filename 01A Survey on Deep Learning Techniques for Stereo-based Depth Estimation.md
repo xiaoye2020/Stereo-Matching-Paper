@@ -22,6 +22,18 @@
 
 ## 3.DATASETS
 
-<img align="center" src="Images/0000.png">
+<img align="center" src="Images/0101.png">
 
 ## 4.DEPTH BY STEREO MATCHING
+
+一般的，双目重建的核心思路是使下面的能量函数最小，其中第一项为匹配代价；第二项为一个正则项用来施加约束，如平滑、左右一致性约束等。
+
+<div align=center>
+<img src="https://latex.codecogs.com/gif.latex?E%28D%29%3D%5Csum_%7Bx%7DC%28x%2Cd_%7Bx%7D%29++%5Csum_%7Bx%7D%5Csum_%7By%5Cin%20N_%7Bx%7D%20%7DE_%7Bs%7D%28d_%7Bx%7D%2Cd_%7By%7D%29" width=50%>
+</div>
+
+分为四个步骤,特征提取、特征匹配、视差计算、视差后处理。前两步构造代价空间。第三步正则化代价空间，然后通过最小化能量函数得到初步的视差图。最后一步是对得到的视差图进行优化和后处理。
+
+<img align="center" src="Images/0102.png">
+
+### 4.1Learning feature extraction and matching
