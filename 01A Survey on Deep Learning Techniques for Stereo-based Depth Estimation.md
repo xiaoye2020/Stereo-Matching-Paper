@@ -61,7 +61,3 @@
 5. 通过学习相似性，而不是学习特征，来简化网络。如（f），把左右图像打包。
 
 #### 4.1.3 Training procedures
-
-1.supervised training:手工制作匹配块，有positive匹配和negative匹配块，使用这些数据集训练神经网络，使损失函数最小化，这里的代价是指真实的视差与预测视差的差异性大小。可以使用$L_{1}$距离，铰链损失函数或交叉熵损失函数。
-
-2.weakly supervised learning：没看懂
