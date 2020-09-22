@@ -29,3 +29,9 @@
 <div align=center>
 <img src="https://latex.codecogs.com/gif.latex?%5Cbg_white%20E%28D%29%3D%5Csum_%7Bp%7D%28C%28p%2CD_%7Bp%7D%29+%5Csum_%7Bq%5Cepsilon%20N_%7Bp%7D%7DP_%7B1%7DT%5B%7CD_%7Bp%7D-D_%7Bq%7D%7C%3D1%5D+%5Csum_%7Bq%5Cepsilon%20N_%7Bp%7D%7DP_%7B2%7DT%5B%7CD_%7Bp%7D-D_%7Bq%7D%7C%3E1%5D%29">
 </div>
+
+公式的第一项是数据项，表示当视差图为D时，所有像素的匹配代价的累加，第二项和第三项是平滑项目，惩罚那些像素p邻域$N_{P}$内的所有像素q，其中第二项是惩罚那些视差差距为1的，力度比较小；第三项惩罚那些视差大于1的，力度比较大。
+
+<div align=center>
+<img src="https://latex.codecogs.com/gif.latex?%5Cbg_white%20P_%7B2%7D%3D%5Cfrac%7B%7BP_%7B2%7D%7D%27%7D%7B%5Cleft%20%7C%20I_%7Bbp%7D-I_%7Bbq%7D%20%5Cright%20%7C%7D">
+</div>
