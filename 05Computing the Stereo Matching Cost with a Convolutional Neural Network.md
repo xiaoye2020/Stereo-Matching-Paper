@@ -36,7 +36,7 @@ d是已知视差，$N_{hi} N_{lo} P_{hi}$和匹配快的边长n都是超参数�
 
 ### 3.3.Matching cost
 
-匹配代价$C_{CNN}(p,d)$是网络的输出：
+匹配代价$C_{cnn}(p,d)$是网络的输出：
 
 <div align=center>
 <img src="https://latex.codecogs.com/gif.latex?%5Cbg_white%20C_%7Bcnn%7D%28p%2Cd%29%3Df_%7Bneg%7D%28%3CP_%7B9%5Ctimes%209%7D%5E%7BL%7D%28p%29%2CP_%7B9%5Ctimes%209%7D%5E%7BR%7D%28pd%29%3E%29">
@@ -46,13 +46,10 @@ d是已知视差，$N_{hi} N_{lo} P_{hi}$和匹配快的边长n都是超参数�
 
 1.对于一个位置p前三层只用前向传递一次就行了。
 
-2.通过向网络提供全分辨率图像进行传递而非9 × 9 图像块，可以计算出一次正向传播中所有位置的L3层输出。为了实现这一点，我们将L2层和LL3层卷积，在L2层中使用尺寸为5×5×32的滤波器，在L3层中使用尺寸为1 × 1 × 200的滤波器，两者都输出200个特征映射。
+2.通过向网络提供全分辨率图像进行传递而非9 × 9 图像块，可以计算出一次正向传播中所有位置的L3层输出。为了实现这一点，我们将L2层和L3层卷积，在L2层中使用尺寸为5×5×32的滤波器，在L3层中使用尺寸为1 × 1 × 200的滤波器，两者都输出200个特征映射。
 
 3.同样，可以使用尺寸为1 × 1 的滤波器替换L4到L8，以计算单个正向传播中所有位置的输出。
 
 ## 4.Stereo method
 
 ### 4.1. Cross-based cost aggregation
-
-
-<img src="https://latex.codecogs.com/gif.latex?%5Cbg_white%20P_%7B2%7D%3D%5Cfrac%7B%7BP_%7B2%7D%7D%27%7D%7B%5Cleft%20%7C%20I_%7Bbp%7D-I_%7Bbq%7D%20%5Cright%20%7C%7D">
