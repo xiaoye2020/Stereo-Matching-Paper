@@ -58,7 +58,7 @@ d是已知视差，$N_{hi} N_{lo} P_{hi}$和匹配快的边长n都是超参数�
 
 [参考文献](https://core.ac.uk/download/pdf/207747318.pdf)
 
-[我的笔记](https://core.ac.uk/download/pdf/207747318.pdf)
+[我的笔记](https://github.com/xiaoye2020/Stereo-Matching-Paper/blob/master/06Cross-Based%20Local%20Stereo%20Matching%20Using%20Orthogonal%20Integral%20Images.md)
 
 ### 4.2. Semiglobal matching
 
