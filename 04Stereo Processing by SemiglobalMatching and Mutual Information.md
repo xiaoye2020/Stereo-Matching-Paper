@@ -49,7 +49,7 @@
 1.拟合二次曲线找一个更精确的视差值：
 
 <div align=center>
-<img src="Images/0501.png">
+<img src="Images/0502.png">
 </div>
 
 2.进行左右一致性检查。
